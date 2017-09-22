@@ -6,5 +6,3 @@ elif no2>no3:
 	print("{} is the maxmium no out of 3 nos".format(no2))
 else:
 	print("{} is the maxmium no out of 3 nos".format(no3))
-	
-	

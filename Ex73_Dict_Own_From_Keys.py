@@ -1,35 +1,50 @@
 #!C:\Python27\python
-def from_keys(d1,value='none'):
-	list1=[]
-	for key in d1:
-		list1.append(key)
-	if isinstance(value,list):
-		if len(value)<len(list1):
-			i=0
-			while i<len(value):
-				d1[list1[i]]=value[i]
+def from_keys(d1,value=None):
+	#verify d1 is dictionary
+	if type(d1)!=dict:
+		return "{} is not a dictionary".format(d1)
+	# verify if value is list
+	result_dict={}
+	if type(value)==list or type(value)==tuple:
+		i=0
+		length=len(d1.keys())
+		for key in d1.keys():
+			if  i+1==length and i+1!=len(value):
+				result_dict[key]=value[i:]
+			elif i<len(value):
+				result_dict[key]=value[i]
 				i+=1
-			while i<len(list1):
-				d1[list1[i]]='none'
-				i+=1
-		
-		elif len(value)>len(list1):
-			i=0
-			while i<len(list1)-1:
-				d1[list1[i]]=value[i]
-				i+=1
-			d1[list1[i]]=value[i:]
-		
-		else:
-			i=0
-			while i<len(list1):
-				d1[list1[i]]=value[i]
-				i+=1
-		
+			else:
+				result_dict[key]=None
+				
 	else:
 		for key in d1:
-			d1[key]=value
-	return d1
+			result_dict[key]=value
+	return result_dict
+	
+'''def from_keys(d1,value=None):
+	#verify d1 is dictionary
+	if type(d1)!=dict:
+		return "{} is not a dictionary".format(d1)
+	# verify if value is list
+	result_dict={}
+	if type(value)==list or type(value)==tuple:
+		i=0
+		for key in d1.keys():
+			if i<len(value):
+				result_dict[key]=value[i]
+				i+=1
+			else:
+				result_dict[key]=None
+			
+		if len(value)>len(d1):
+			result_dict[key]=value[i:]
+	else:
+		for key in d1:
+			result_dict[key]=value
+	return result_dict'''
+	
+		
 		
 def main():
 	student={"Name":"Dharma","S.No":123,"Company":"Qlogic","pincode":"411015"}
