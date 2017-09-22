@@ -4,7 +4,6 @@ import shutil
 def Make_Archive_Files(arg,directories,files):
 	for file in files:
 		base_path=os.path.join(directories,file)
-		print base_path
 		shutil.make_archive(base_path,arg,directories,file)
 	
 def main():
