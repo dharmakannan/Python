@@ -17,9 +17,9 @@ def Copy_Files(src_file,dest_file,no_of_lines):
 	
 def main():
 	parser=argparse.ArgumentParser()
-	parser.add_argument("-s","--srcfile",type=str,help="Source File name",)
-	parser.add_argument("-d","--destfile",type=str,help="Destination File name")
-	parser.add_argument("-l","--length",type=int,help="No of lines to copy")
+	parser.add_argument("-s",type=str,help="Source File name",)
+	parser.add_argument("-d",type=str,help="Destination File name")
+	parser.add_argument("-l",type=int,help="No of lines to copy")
 	args=parser.parse_args()
 	#print args
 	Copy_Files(args.s,args.d,args.l)
